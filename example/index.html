@@ -79,7 +79,7 @@
         transition: .3s cubic-bezier(.4,.2,.5,1.4);
         transform-origin: 1.43em -.43em;
       }
-      
+
       div.awesomplete > ul[hidden],
       div.awesomplete > ul:empty {
         opacity: 0;
@@ -110,25 +110,25 @@
         padding: .2em .5em;
         cursor: pointer;
       }
-      
+
       div.awesomplete > ul > li:hover {
         background: hsl(200, 40%, 80%);
         color: black;
       }
-      
+
       div.awesomplete > ul > li[aria-selected="true"] {
         background: hsl(205, 40%, 40%);
         color: white;
       }
-      
+
         div.awesomplete mark {
           background: hsl(65, 100%, 50%);
         }
-        
+
         div.awesomplete li:hover mark {
           background: hsl(68, 100%, 41%);
         }
-        
+
         div.awesomplete li[aria-selected="true"] mark {
           background: hsl(86, 100%, 21%);
           color: inherit;
@@ -409,37 +409,6 @@
     <pre></pre>
   </div>
   <script src="//maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-  <script src="https://fb.me/react-0.14.3.js"></script>
-  <script src="https://fb.me/react-dom-0.14.3.js"></script>
-  <script src="../build/react-place.min.js"></script>
-  <script>
-
-    var createLocation = React.createFactory(ReactPlace);
-
-    function onLocationSet(value) {
-      var pre = document.querySelector('pre');
-
-      pre.innerHTML = JSON.stringify(value, null, 2);
-    }
-
-    window.onload = function () {
-      var country = document.querySelector('#country-dropdown');
-      var container = document.querySelector('#container');
-      var LocationComp = createLocation({
-        className: 'location',
-        placeholder: 'Where are you?',
-        country: country.value,
-        noMatching: 'Sorry, I can not find {{value}}.',
-        onLocationSet: onLocationSet
-      });
-      var l = ReactDOM.render(LocationComp, container);
-
-      country.addEventListener('change', function () {
-        l.updateCountry(country.value);
-      });
-
-    };
-
-  </script>
+  <script src="./build/app.js"></script>
 </body>
 </html>

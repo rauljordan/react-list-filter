@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/Users/rauljordan/Desktop/Code/React/react-place/example-es6";
+/******/ 	__webpack_require__.p = "/Users/rauljordan/Desktop/Code/React/react-search-dropdown/example";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -56,9 +56,9 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _srcLocationJsx = __webpack_require__(159);
+	var _srcSearchDropdownJsx = __webpack_require__(159);
 	
-	var _srcLocationJsx2 = _interopRequireDefault(_srcLocationJsx);
+	var _srcSearchDropdownJsx2 = _interopRequireDefault(_srcSearchDropdownJsx);
 	
 	function onLocationSet(value) {
 	  var pre = document.querySelector('pre');
@@ -71,7 +71,7 @@
 	  var container = document.querySelector('#container');
 	  var location;
 	
-	  location = _reactDom2['default'].render(_react2['default'].createElement(_srcLocationJsx2['default'], {
+	  location = _reactDom2['default'].render(_react2['default'].createElement(_srcSearchDropdownJsx2['default'], {
 	    className: 'location',
 	    placeholder: 'Where are you?',
 	    country: country.value,

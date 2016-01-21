@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Location from '../../src/Location.jsx';
+import Location from '../../src/SearchDropdown.jsx';
 
 function onLocationSet(value) {
   var pre = document.querySelector('pre');
