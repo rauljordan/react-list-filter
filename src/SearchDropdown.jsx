@@ -2,30 +2,37 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-// import Promise from 'promise-polyfill';
-
-/**
-const compose = () => {
-  var fns = arguments;
-
-  return function (result) {
-    for (let i = fns.length - 1; i >= 0; i--) {
-      result = fns[i].call(this, result);
-    }
-    return result;
-  };
-};
-*/
+// import compose from './utils';
 
 export default class SearchDropdown extends React.Component {
 
+  getInitialState() {
+    return {
+      data: ['hello'],
+      filteredData: ['hello']
+    };
+  }
+
+  filterData(e) {
+    e.preventDefault();
+    const regex = new RegExp(e.target.value, 'i');
+    const filtered = this.state.data.filter((datum) => {
+      return (datum.search(regex) > -1);
+    });
+
+    this.setState({
+      filteredData: filtered
+    });
+  }
+
   render() {
     return (
-      <input
-        type='text'
-        className={ this.props.className }
-        placeholder={ this.props.placeholder || 'Type your location here.' }
-      />
+      <div className={this.props.className}>
+        <input type='text' placeholder={this.props.placeholder} onChange={this.filterData}></input>
+        <ul>
+          <li>No Items Found</li>
+        </ul>
+      </div>
     );
   }
 

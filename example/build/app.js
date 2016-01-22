@@ -19684,20 +19684,7 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	// import Promise from 'promise-polyfill';
-	
-	/**
-	const compose = () => {
-	  var fns = arguments;
-	
-	  return function (result) {
-	    for (let i = fns.length - 1; i >= 0; i--) {
-	      result = fns[i].call(this, result);
-	    }
-	    return result;
-	  };
-	};
-	*/
+	// import compose from './utils';
 	
 	var SearchDropdown = (function (_React$Component) {
 	  _inherits(SearchDropdown, _React$Component);
@@ -19709,13 +19696,43 @@
 	  }
 	
 	  _createClass(SearchDropdown, [{
+	    key: 'getInitialState',
+	    value: function getInitialState() {
+	      return {
+	        data: ['hello'],
+	        filteredData: ['hello']
+	      };
+	    }
+	  }, {
+	    key: 'filterData',
+	    value: function filterData(e) {
+	      e.preventDefault();
+	      var regex = new RegExp(e.target.value, 'i');
+	      var filtered = this.state.data.filter(function (datum) {
+	        return datum.search(regex) > -1;
+	      });
+	
+	      this.setState({
+	        filteredData: filtered
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2['default'].createElement('input', {
-	        type: 'text',
-	        className: this.props.className,
-	        placeholder: this.props.placeholder || 'Type your location here.'
-	      });
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: this.props.className },
+	        _react2['default'].createElement('input', { type: 'text', placeholder: this.props.placeholder, onChange: this.filterData }),
+	        _react2['default'].createElement(
+	          'ul',
+	          null,
+	          _react2['default'].createElement(
+	            'li',
+	            null,
+	            'No Items Found'
+	          )
+	        )
+	      );
 	    }
 	  }, {
 	    key: '_getInputValue',
