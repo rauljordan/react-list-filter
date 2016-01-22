@@ -1,30 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Location from '../../src/SearchDropdown.jsx';
-
-function onLocationSet(value) {
-  var pre = document.querySelector('pre');
-
-  pre.innerHTML = JSON.stringify(value, null, 2);
-}
+import SearchDropdown from '../../src/SearchDropdown.jsx';
 
 window.onload = () => {
-  var country = document.querySelector('#country-dropdown');
-  var container = document.querySelector('#container');
-  var location;
+  let container = document.querySelector('#container');
 
-  location = ReactDOM.render(
-    <Location
-      className='location'
-      placeholder='Where are you?'
-      country={ country.value }
-      noMatching='Sorry, I can not find {{value}}.'
-      onLocationSet={ onLocationSet }
-      />,
-    container
-  );
+  ReactDOM.render(<SearchDropdown className='search-dropdown' placeholder='Input Some Text'/>, container);
 
+  /*
   country.addEventListener('change', () => {
     location.updateCountry(country.value);
   });
+  */
 };

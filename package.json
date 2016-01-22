@@ -1,7 +1,7 @@
 {
   "name": "react-search-dropdown",
   "version": "0.4.1",
-  "description": "A material design react dropdown component with simple regex search",
+  "description": "A material design react dropdown component with simple search",
   "main": "lib/SearchDropdown.js",
   "author": {
     "name": "Raul E. Jordan",
