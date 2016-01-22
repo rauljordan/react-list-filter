@@ -2,14 +2,14 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-// import compose from './utils';
 
 export default class SearchDropdown extends React.Component {
 
-  getInitialState() {
-    return {
-      data: ['hello'],
-      filteredData: ['hello']
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: this.props.data,
+      filteredData: this.props.data
     };
   }
 
@@ -26,11 +26,16 @@ export default class SearchDropdown extends React.Component {
   }
 
   render() {
+    const { filteredData } = this.state;
+    const items = filteredData.map((datum) => {
+      return (<li>{datum}</li>);
+    });
+
     return (
       <div className={this.props.className}>
-        <input type='text' placeholder={this.props.placeholder} onChange={this.filterData}></input>
+        <input type='text' placeholder={this.props.placeholder} onChange={this.filterData.bind(this)}></input>
         <ul>
-          <li>No Items Found</li>
+          {items}
         </ul>
       </div>
     );
@@ -43,5 +48,6 @@ export default class SearchDropdown extends React.Component {
 
 SearchDropdown.propTypes = {
   className: React.PropTypes.string,
-  placeholder: React.PropTypes.string
+  placeholder: React.PropTypes.string,
+  data: React.PropTypes.array
 };

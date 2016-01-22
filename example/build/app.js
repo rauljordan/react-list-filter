@@ -62,9 +62,13 @@
 	
 	window.onload = function () {
 	  var container = document.querySelector('#container');
+	  var data = ['Boston', 'Palo Alto', 'Columbus'];
 	
-	  _reactDom2['default'].render(_react2['default'].createElement(_srcSearchDropdownJsx2['default'], { className: 'search-dropdown', placeholder: 'Input Some Text' }), container);
-	
+	  _reactDom2['default'].render(_react2['default'].createElement(_srcSearchDropdownJsx2['default'], {
+	    className: 'search-dropdown',
+	    placeholder: 'Search Items',
+	    data: data
+	  }), container);
 	  /*
 	  country.addEventListener('change', () => {
 	    location.updateCountry(country.value);
@@ -19684,26 +19688,20 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	// import compose from './utils';
-	
 	var SearchDropdown = (function (_React$Component) {
 	  _inherits(SearchDropdown, _React$Component);
 	
-	  function SearchDropdown() {
+	  function SearchDropdown(props) {
 	    _classCallCheck(this, SearchDropdown);
 	
-	    _get(Object.getPrototypeOf(SearchDropdown.prototype), 'constructor', this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(SearchDropdown.prototype), 'constructor', this).call(this, props);
+	    this.state = {
+	      data: this.props.data,
+	      filteredData: this.props.data
+	    };
 	  }
 	
 	  _createClass(SearchDropdown, [{
-	    key: 'getInitialState',
-	    value: function getInitialState() {
-	      return {
-	        data: ['hello'],
-	        filteredData: ['hello']
-	      };
-	    }
-	  }, {
 	    key: 'filterData',
 	    value: function filterData(e) {
 	      e.preventDefault();
@@ -19719,18 +19717,24 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var filteredData = this.state.filteredData;
+	
+	      var items = filteredData.map(function (datum) {
+	        return _react2['default'].createElement(
+	          'li',
+	          null,
+	          datum
+	        );
+	      });
+	
 	      return _react2['default'].createElement(
 	        'div',
 	        { className: this.props.className },
-	        _react2['default'].createElement('input', { type: 'text', placeholder: this.props.placeholder, onChange: this.filterData }),
+	        _react2['default'].createElement('input', { type: 'text', placeholder: this.props.placeholder, onChange: this.filterData.bind(this) }),
 	        _react2['default'].createElement(
 	          'ul',
 	          null,
-	          _react2['default'].createElement(
-	            'li',
-	            null,
-	            'No Items Found'
-	          )
+	          items
 	        )
 	      );
 	    }
@@ -19749,7 +19753,8 @@
 	
 	SearchDropdown.propTypes = {
 	  className: _react2['default'].PropTypes.string,
-	  placeholder: _react2['default'].PropTypes.string
+	  placeholder: _react2['default'].PropTypes.string,
+	  data: _react2['default'].PropTypes.array
 	};
 	module.exports = exports['default'];
 
