@@ -2,7 +2,7 @@
 
 ![Imgur](http://i.imgur.com/dQxF3UJ.gif)
 
-Builds a simple component with a text input that can filter a <ul> with data passed in as its list items through props. Style the text input and ul with classNames passed in as props to the component, namely ```ulClassName``` and ```inputClassName```
+Builds a simple component with a text input that can filter a ul with data passed in as its list items through props. Style the text input and ul with classNames passed in as props to the component, namely ```ulClassName``` and ```inputClassName```
 ## Installation
 
 ```
