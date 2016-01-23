@@ -8,7 +8,8 @@ window.onload = () => {
 
   ReactDOM.render(
     <ListFilter
-      className='search-dropdown'
+      ulClassName='material-ul'
+      inputClassName='material-input'
       placeholder='Search Items'
       data={data}
       />,

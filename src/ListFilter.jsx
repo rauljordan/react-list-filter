@@ -32,9 +32,9 @@ export default class ListFilter extends React.Component {
     });
 
     return (
-      <div className={this.props.className}>
-        <input type='text' placeholder={this.props.placeholder} onChange={this.filterData.bind(this)}></input>
-        <ul>
+      <div>
+        <input className={this.props.inputClassName} type='text' placeholder={this.props.placeholder} onChange={this.filterData.bind(this)}></input>
+        <ul className={this.props.ulClassName}>
           {items}
         </ul>
       </div>
@@ -47,7 +47,8 @@ export default class ListFilter extends React.Component {
 };
 
 ListFilter.propTypes = {
-  className: React.PropTypes.string,
+  ulClassName: React.PropTypes.string,
+  inputClassName: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   data: React.PropTypes.array
 };
