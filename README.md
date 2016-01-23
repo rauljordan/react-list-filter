@@ -1,7 +1,5 @@
 # React List With Text Filter
 
-![react-place](http://work.krasimirtsonev.com/react-place/react-place.gif)
-
 ## Installation
 
 ```
@@ -17,24 +15,17 @@ npm install react-list-filter
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Location from 'react-place';
+import ListFilter from 'react-place';
 
-var location;
-var container = document.querySelector('...');
+var container = document.querySelector('#container');
 
-var onLocationSet = (data) => {
-  // data.description
-  // data.coords.lat
-  // data.coords.lng
-};
+let data = ['Boston', 'Palo Alto', 'Columbus'];
 
-location = ReactDOM.render(
-  <Location
-    className='location'
-    placeholder='Where are you?'
-    country='US'
-    noMatching='Sorry, I can not find {{value}}.'
-    onLocationSet={ onLocationSet }
+ReactDOM.render(
+  <ListFilter
+    className='list-filter'
+    placeholder='Filter Cities'
+    data={data}
     />,
   container
 );
