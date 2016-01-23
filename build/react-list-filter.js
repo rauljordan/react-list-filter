@@ -66,11 +66,14 @@ var ListFilter = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: this.props.className },
-        _react2.default.createElement('input', { type: 'text', placeholder: this.props.placeholder, onChange: this.filterData.bind(this) }),
+        null,
+        _react2.default.createElement('input', {
+          className: this.props.inputClassName,
+          type: 'text', placeholder: this.props.placeholder,
+          onChange: this.filterData.bind(this) }),
         _react2.default.createElement(
           'ul',
-          null,
+          { className: this.props.ulClassName },
           items
         )
       );
@@ -89,7 +92,8 @@ exports.default = ListFilter;
 ;
 
 ListFilter.propTypes = {
-  className: _react2.default.PropTypes.string,
+  ulClassName: _react2.default.PropTypes.string,
+  inputClassName: _react2.default.PropTypes.string,
   placeholder: _react2.default.PropTypes.string,
   data: _react2.default.PropTypes.array
 };

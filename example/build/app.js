@@ -65,7 +65,8 @@
 	  var data = ['Boston', 'Palo Alto', 'Columbus'];
 	
 	  _reactDom2['default'].render(_react2['default'].createElement(_srcListFilterJsx2['default'], {
-	    className: 'search-dropdown',
+	    ulClassName: 'material-ul',
+	    inputClassName: 'material-input',
 	    placeholder: 'Search Items',
 	    data: data
 	  }), container);
@@ -19724,11 +19725,14 @@
 	
 	      return _react2['default'].createElement(
 	        'div',
-	        { className: this.props.className },
-	        _react2['default'].createElement('input', { type: 'text', placeholder: this.props.placeholder, onChange: this.filterData.bind(this) }),
+	        null,
+	        _react2['default'].createElement('input', {
+	          className: this.props.inputClassName,
+	          type: 'text', placeholder: this.props.placeholder,
+	          onChange: this.filterData.bind(this) }),
 	        _react2['default'].createElement(
 	          'ul',
-	          null,
+	          { className: this.props.ulClassName },
 	          items
 	        )
 	      );
@@ -19747,7 +19751,8 @@
 	;
 	
 	ListFilter.propTypes = {
-	  className: _react2['default'].PropTypes.string,
+	  ulClassName: _react2['default'].PropTypes.string,
+	  inputClassName: _react2['default'].PropTypes.string,
 	  placeholder: _react2['default'].PropTypes.string,
 	  data: _react2['default'].PropTypes.array
 	};
