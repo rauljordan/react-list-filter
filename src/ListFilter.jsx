@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-export default class SearchDropdown extends React.Component {
+export default class ListFilter extends React.Component {
 
   constructor(props) {
     super(props);
@@ -46,7 +46,7 @@ export default class SearchDropdown extends React.Component {
   }
 };
 
-SearchDropdown.propTypes = {
+ListFilter.propTypes = {
   className: React.PropTypes.string,
   placeholder: React.PropTypes.string,
   data: React.PropTypes.array

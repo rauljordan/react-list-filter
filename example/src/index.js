@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchDropdown from '../../src/SearchDropdown.jsx';
+import ListFilter from '../../src/ListFilter.jsx';
 
 window.onload = () => {
   let container = document.querySelector('#container');
   let data = ['Boston', 'Palo Alto', 'Columbus'];
 
   ReactDOM.render(
-    <SearchDropdown
+    <ListFilter
       className='search-dropdown'
       placeholder='Search Items'
       data={data}
-      />, container);
-  /*
-  country.addEventListener('change', () => {
-    location.updateCountry(country.value);
-  });
-  */
+      />,
+    container
+  );
 };

@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.SearchDropdown = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.ListFilter = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -23,26 +23,22 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import compose from './utils';
+var ListFilter = function (_React$Component) {
+  _inherits(ListFilter, _React$Component);
 
-var SearchDropdown = function (_React$Component) {
-  _inherits(SearchDropdown, _React$Component);
+  function ListFilter(props) {
+    _classCallCheck(this, ListFilter);
 
-  function SearchDropdown() {
-    _classCallCheck(this, SearchDropdown);
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ListFilter).call(this, props));
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(SearchDropdown).apply(this, arguments));
+    _this.state = {
+      data: _this.props.data,
+      filteredData: _this.props.data
+    };
+    return _this;
   }
 
-  _createClass(SearchDropdown, [{
-    key: 'getInitialState',
-    value: function getInitialState() {
-      return {
-        data: ['hello'],
-        filteredData: ['hello']
-      };
-    }
-  }, {
+  _createClass(ListFilter, [{
     key: 'filterData',
     value: function filterData(e) {
       e.preventDefault();
@@ -58,18 +54,24 @@ var SearchDropdown = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var filteredData = this.state.filteredData;
+
+      var items = filteredData.map(function (datum) {
+        return _react2.default.createElement(
+          'li',
+          null,
+          datum
+        );
+      });
+
       return _react2.default.createElement(
         'div',
         { className: this.props.className },
-        _react2.default.createElement('input', { type: 'text', placeholder: this.props.placeholder, onChange: this.filterData }),
+        _react2.default.createElement('input', { type: 'text', placeholder: this.props.placeholder, onChange: this.filterData.bind(this) }),
         _react2.default.createElement(
           'ul',
           null,
-          _react2.default.createElement(
-            'li',
-            null,
-            'No Items Found'
-          )
+          items
         )
       );
     }
@@ -80,15 +82,16 @@ var SearchDropdown = function (_React$Component) {
     }
   }]);
 
-  return SearchDropdown;
+  return ListFilter;
 }(_react2.default.Component);
 
-exports.default = SearchDropdown;
+exports.default = ListFilter;
 ;
 
-SearchDropdown.propTypes = {
+ListFilter.propTypes = {
   className: _react2.default.PropTypes.string,
-  placeholder: _react2.default.PropTypes.string
+  placeholder: _react2.default.PropTypes.string,
+  data: _react2.default.PropTypes.array
 };
 module.exports = exports['default'];
 

@@ -1,11 +1,11 @@
-# Material Design React Dropdown With Search
+# React List With Text Filter
 
 ![react-place](http://work.krasimirtsonev.com/react-place/react-place.gif)
 
 ## Installation
 
 ```
-npm install react-search-dropdown
+npm install react-list-filter
 ```
 
 ## Dependencies

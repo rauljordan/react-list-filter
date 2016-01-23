@@ -1,8 +1,8 @@
 {
-  "name": "react-search-dropdown",
+  "name": "react-list-filter",
   "version": "0.4.1",
-  "description": "A material design react dropdown component with simple search",
-  "main": "lib/SearchDropdown.js",
+  "description": "A react component for building a simple list with a search filter",
+  "main": "lib/ListFilter.js",
   "author": {
     "name": "Raul E. Jordan",
     "email": "raulitojordan@gmail.com",
@@ -11,21 +11,18 @@
   "license": "MIT",
   "keywords": [
     "react",
-    "dropdown",
-    "material design",
-    "materialize",
-    "search"
+    "search",
+    "filter"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:rauljordan/react-search-dropdown.git"
+    "url": "git@github.com:rauljordan/react-list-filter.git"
   },
   "scripts": {
     "dev": "webpack --watch --inline",
-    "prepublish": "babel ./src --out-dir ./lib --source-maps --presets es2015,react --plugins babel-plugin-add-module-exports && browserify ./lib/SearchDropdown.js -o ./build/react-search-dropdown.js --transform browserify-global-shim --standalone SearchDropdown && uglifyjs ./build/react-search-dropdown.js --compress --mangle --output ./build/react-search-dropdown.min.js --source-map ./build/react-search-dropdown.min.js.map",
+    "prepublish": "babel ./src --out-dir ./lib --source-maps --presets es2015,react --plugins babel-plugin-add-module-exports && browserify ./lib/ListFilter.js -o ./build/react-list-filter.js --transform browserify-global-shim --standalone ListFilter && uglifyjs ./build/react-list-filter.js --compress --mangle --output ./build/react-list-filter.min.js --source-map ./build/react-list-filter.min.js.map",
     "test": "karma start",
-    "test:ci": "watch 'npm run test' src/",
-    "example-es5-browserify": "browserify ./example-es5-browserify/src/index.js -o ./example-es5-browserify/build/app.js"
+    "test:ci": "watch 'npm run test' src/"
   },
   "dependencies": {
     "awesomplete": "1.0.0",

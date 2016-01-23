@@ -56,24 +56,19 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _srcSearchDropdownJsx = __webpack_require__(159);
+	var _srcListFilterJsx = __webpack_require__(159);
 	
-	var _srcSearchDropdownJsx2 = _interopRequireDefault(_srcSearchDropdownJsx);
+	var _srcListFilterJsx2 = _interopRequireDefault(_srcListFilterJsx);
 	
 	window.onload = function () {
 	  var container = document.querySelector('#container');
 	  var data = ['Boston', 'Palo Alto', 'Columbus'];
 	
-	  _reactDom2['default'].render(_react2['default'].createElement(_srcSearchDropdownJsx2['default'], {
+	  _reactDom2['default'].render(_react2['default'].createElement(_srcListFilterJsx2['default'], {
 	    className: 'search-dropdown',
 	    placeholder: 'Search Items',
 	    data: data
 	  }), container);
-	  /*
-	  country.addEventListener('change', () => {
-	    location.updateCountry(country.value);
-	  });
-	  */
 	};
 
 /***/ },
@@ -19688,20 +19683,20 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var SearchDropdown = (function (_React$Component) {
-	  _inherits(SearchDropdown, _React$Component);
+	var ListFilter = (function (_React$Component) {
+	  _inherits(ListFilter, _React$Component);
 	
-	  function SearchDropdown(props) {
-	    _classCallCheck(this, SearchDropdown);
+	  function ListFilter(props) {
+	    _classCallCheck(this, ListFilter);
 	
-	    _get(Object.getPrototypeOf(SearchDropdown.prototype), 'constructor', this).call(this, props);
+	    _get(Object.getPrototypeOf(ListFilter.prototype), 'constructor', this).call(this, props);
 	    this.state = {
 	      data: this.props.data,
 	      filteredData: this.props.data
 	    };
 	  }
 	
-	  _createClass(SearchDropdown, [{
+	  _createClass(ListFilter, [{
 	    key: 'filterData',
 	    value: function filterData(e) {
 	      e.preventDefault();
@@ -19745,13 +19740,13 @@
 	    }
 	  }]);
 	
-	  return SearchDropdown;
+	  return ListFilter;
 	})(_react2['default'].Component);
 	
-	exports['default'] = SearchDropdown;
+	exports['default'] = ListFilter;
 	;
 	
-	SearchDropdown.propTypes = {
+	ListFilter.propTypes = {
 	  className: _react2['default'].PropTypes.string,
 	  placeholder: _react2['default'].PropTypes.string,
 	  data: _react2['default'].PropTypes.array
