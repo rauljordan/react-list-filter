@@ -1,5 +1,7 @@
 # React List With Text Filter
 
+![react-list-filter](http://i.imgur.com/dQxF3UJ.gifv)
+
 ## Installation
 
 ```
