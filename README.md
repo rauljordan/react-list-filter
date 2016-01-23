@@ -1,6 +1,6 @@
 # React List With Text Filter
 
-![Imgur](http://i.imgur.com/dQxF3UJ.gifv)
+![Imgur](http://i.imgur.com/dQxF3UJ.gif)
 
 ## Installation
 
