@@ -35,9 +35,9 @@ export default class ListFilter extends React.Component {
       <div>
         <input
          className={this.props.inputClassName}
-         type='text' placeholder={this.props.placeholder}
-         onChange={this.filterData.bind(this)}>
-        </input>
+         type='text'
+         placeholder={this.props.placeholder}
+         onChange={this.filterData.bind(this)} />
         <ul className={this.props.ulClassName}>
           {items}
         </ul>
